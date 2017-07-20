@@ -11,7 +11,7 @@ export default function commentReducer(state = comments, action) {
   // console.log(action)
   switch (action.type) {
     case 'ADD_COMMENT':
-      return [...state ,action.comment]
+      return [...state ,{content:action.comment,postId:action.postId}]
     default:
       return state;
   }

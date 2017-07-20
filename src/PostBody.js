@@ -7,15 +7,18 @@ class PostBody extends Component {
 		store.dispatch({type:"INCRMENT_LIKE"})
   }
   render() {
-
+    console.log(this.props)
+    let {posts,postId } = this.props
+    let currentPost = posts.filter(value => value.postId === postId )[0]
+    console.log(currentPost)
     return (
       <div className="post-body" style={{height:"80px",backgroundColor:"lightpink"}}>
         {this.props.comments.length}
       	<div className="title">
-        	{this.props.PostId}
+        	 {currentPost.title}
      	</div>
       	<div className="likes-num num" onClick={this.handleClick}>
-					{this.props.likes}赞
+					{currentPost.likes} 赞
       	</div>
       </div>
     )
@@ -24,7 +27,7 @@ class PostBody extends Component {
 
 const mapStateToProps = (state) => ({
 	comments:state.comments,
-	likes:state.likes
+	posts:state.posts
 });
 
 export default connect(mapStateToProps)(PostBody);

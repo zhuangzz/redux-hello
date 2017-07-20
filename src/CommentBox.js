@@ -7,12 +7,11 @@ class CommentBox extends Component {
     comments: store.getState()
   }
 
-  handleSubmit = () => {
-    // e.preventDefault()
+  handleSubmit = (e) => {
+    e.preventDefault()
     let newComment = this.commentInput.value
     console.log(store.getState())
-    store.dispatch({type: 'ADD_COMMENT', comment: newComment})
-    // console.log(store.getState())
+    store.dispatch({type: 'ADD_COMMENT', comment: newComment,postId:this.props.postId})
     this.setState({
       comments: store.getState()
     })
@@ -20,23 +19,17 @@ class CommentBox extends Component {
   }
 
   render() {
-    // console.log(store.getState())
     console.log(this.props.comments)
     console.log(this.props.postId)
     let { postId, comments } = this.props
     let myComments = comments.filter(value => value.postId ===  postId ).map(item => {
-       return item.content;
-     })
+       return item.content;})
     console.log('myComments', myComments)
     return (
       <div className="comment-box">
         {
-          // this.state.comments.map(item => (
-            // ['1', '2'].map(item => (
-             // this.props.comments.map(item => (
              myComments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
-
           ))
         }
         <form ref={value => this.commentForm = value}

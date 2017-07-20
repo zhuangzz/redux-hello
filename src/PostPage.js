@@ -7,6 +7,7 @@ import PostBody from "./PostBody";
 class PostPage extends Component {
   render(){
     let {id}=this.props.match.params
+    
     return (
       <div>      
  				<div>
