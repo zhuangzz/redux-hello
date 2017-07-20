@@ -1,10 +1,14 @@
 let  comments = [
-    "第一条评论",
-    "第二条评论"
+  {content:"一",
+ 		postId:"1"},
+ 	{content:"一一",
+ 		postId:"1"},
+ 	{content:"二",
+ 		postId:"2"},
   ]
 
 export default function commentReducer(state = comments, action) {
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case 'ADD_COMMENT':
       return [...state ,action.comment]

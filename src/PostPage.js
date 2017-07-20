@@ -5,15 +5,16 @@ import PostBody from "./PostBody";
 
 
 class PostPage extends Component {
-  render() {
+  render(){
+    let {id}=this.props.match.params
     return (
       <div>      
  				<div>
    				<div className="top  clearfix">
-     				<PostBody />
+     				<PostBody postId={id}/>
    				</div>
    				<div className="bottom clearfix">
-    				<CommentBox />
+    				<CommentBox postId={id}/>
    				</div>
  				</div>
       </div>

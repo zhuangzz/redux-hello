@@ -7,12 +7,16 @@ class PostBody extends Component {
 		store.dispatch({type:"INCRMENT_LIKE"})
   }
   render() {
+
     return (
       <div className="post-body" style={{height:"80px",backgroundColor:"lightpink"}}>
-       {this.props.comments.length}
-       <div className="likes-num num" onClick={this.handleClick}>
-				{this.props.likes}赞
-       </div>
+        {this.props.comments.length}
+      	<div className="title">
+        	{this.props.PostId}
+     	</div>
+      	<div className="likes-num num" onClick={this.handleClick}>
+					{this.props.likes}赞
+      	</div>
       </div>
     )
   }
