@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import store from './store';
 import {connect} from "react-redux"
 class PostBody extends Component {
-  handleClick(){
-		store.dispatch({type:"INCRMENT_LIKE"})
+  handleClick=()=>{
+		store.dispatch({type:"INCRMENT_LIKE",postId:this.props.postId})
   }
   render() {
     console.log(this.props)
@@ -12,8 +12,10 @@ class PostBody extends Component {
     let currentPost = posts.filter(value => value.postId === postId )[0]
     console.log(currentPost)
     return (
-      <div className="post-body" style={{height:"80px",backgroundColor:"lightpink"}}>
-        {this.props.comments.length}
+      <div className="post-body">
+        <div className="comment-num num ">
+          {this.props.comments.length}评论
+        </div>
       	<div className="title">
         	 {currentPost.title}
      	</div>

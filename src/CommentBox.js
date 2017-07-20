@@ -19,8 +19,8 @@ class CommentBox extends Component {
   }
 
   render() {
-    console.log(this.props.comments)
-    console.log(this.props.postId)
+    // console.log(this.props.comments)
+    // console.log(this.props.postId)
     let { postId, comments } = this.props
     let myComments = comments.filter(value => value.postId ===  postId ).map(item => {
        return item.content;})
