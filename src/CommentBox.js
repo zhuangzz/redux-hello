@@ -3,7 +3,6 @@ import store from './store'
 import {connect} from "react-redux"
 
 class CommentBox extends Component {
-
   state = {
     comments: store.getState()
   }
