@@ -8,13 +8,16 @@ class PostBody extends Component {
   }
   render() {
     console.log(this.props)
-    let {posts,postId } = this.props
+    console.log("xxx",store.getState())
+    let {posts,postId,comments } = this.props
     let currentPost = posts.filter(value => value.postId === postId )[0]
+    let currentComment=comments.filter(value=>value.postId===postId)
     console.log(currentPost)
     return (
       <div className="post-body">
         <div className="comment-num num ">
-          {this.props.comments.length}评论
+          
+          {currentComment.length}评论
         </div>
       	<div className="title">
         	 {currentPost.title}
